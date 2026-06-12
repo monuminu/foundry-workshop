@@ -1,0 +1,62 @@
+name: Deploy workshop site to GitHub Pages
+
+# Build the MkDocs site and publish it to GitHub Pages on every push to main.
+# One-time setup (repo Settings -> Pages -> Build and deployment -> Source):
+#   set the Source to "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - ".github/workflows/deploy-docs.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment; cancel in-progress on a newer push.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Only the documentation toolchain is needed to render the site.
+      # Notebooks are rendered from their saved outputs (execute: false),
+      # so no credentials are required in CI.
+      - name: Install docs dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install \
+            "mkdocs-material>=9.5" \
+            "mkdocs-jupyter>=0.25" \
+            "pymdown-extensions>=10.7"
+
+      - name: Build site (strict)
+        run: mkdocs build --strict
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

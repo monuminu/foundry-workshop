@@ -1,0 +1,95 @@
+site_name: "Microsoft Foundry: End-to-End Workshop"
+site_description: >-
+  A hands-on, end-to-end coding workshop for building enterprise AI agents and apps on Microsoft Foundry (Azure AI Foundry).
+site_url: "https://monuminu.github.io/foundry-workshop/"
+
+repo_name: "monuminu/foundry-workshop"
+repo_url: "https://github.com/monuminu/foundry-workshop"
+edit_uri: "edit/main/docs/"
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      include_source: true          # add a "download notebook" link on each lab
+      execute: false                # render saved outputs; don't run at build time
+      ignore_h1_titles: true
+      include: ["*.ipynb"]
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+# NAV — fill in one entry per generated module notebook. Example:
+#   - Home: index.md
+#   - Setup: setup.md
+#   - Concepts: concepts.md
+#   - Labs:
+#       - "M1 · First Steps": modules/01-first-steps.ipynb
+#       - "M2 · Next Topic":  modules/02-next-topic.ipynb
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Concepts: concepts.md
+  - Platform:
+      - "What is Foundry": platform/01-what-is-foundry.md
+      - "Architecture & projects": platform/02-architecture-and-projects.md
+      - "Control plane & governance": platform/03-control-plane-and-governance.md
+  - Labs:
+      - "M1 · First Inference": modules/01-first-inference.ipynb
+      - "M2 · Your First Agent": modules/02-your-first-agent.ipynb
+      - "M3 · Tools & Function Calling": modules/03-tools-and-function-calling.ipynb
+      - "M4 · Grounding / RAG (Foundry IQ)": modules/04-grounding-rag-foundry-iq.ipynb
+      - "M5 · MCP Tools": modules/05-mcp-tools.ipynb
+      - "M6 · Agent Memory": modules/06-agent-memory.ipynb
+      - "M7 · Multi-Agent Orchestration": modules/07-multi-agent-orchestration.ipynb
+      - "M8 · Deep Research": modules/08-deep-research.ipynb
+      - "M9 · Evaluation": modules/09-evaluation.ipynb
+      - "M10 · Observability & Tracing": modules/10-observability-tracing.ipynb
+      - "M11 · Guardrails": modules/11-guardrails.ipynb
+      - "M12 · Red Teaming": modules/12-red-teaming.ipynb
+      - "M13 · Human-in-the-Loop & REST": modules/13-human-in-the-loop-and-rest.ipynb
+      - "M14 · Fine-Tuning": modules/14-fine-tuning-distillation.ipynb
+      - "M15 · Capstone": modules/15-capstone.ipynb
