@@ -20,6 +20,7 @@ model call to a grounded, tool-using, evaluated, observable agent:
 3. **Tools & function calling** — Code Interpreter + custom tools
 4. **Grounding / RAG** — Azure AI Search knowledge bases (Foundry IQ)
 5. **MCP tools** — connect an agent to a Model Context Protocol server
+   - **Work IQ** — ground an agent in live, permission-aware Microsoft 365 work context (M5b)
 6. **Agent memory** — cross-turn context
 7. **Multi-agent orchestration** — router + specialists
 8. **Deep research** — agentic research loops with cited synthesis

@@ -56,6 +56,7 @@ to an agent so every answer is backed by citations.
 
 - **[M4](modules/04-grounding-rag-foundry-iq.ipynb)** — single grounded agent.
 - **[M5](modules/05-mcp-tools.ipynb)** — reach external systems through **MCP** tools.
+- **[M5b](modules/05b-work-iq.ipynb)** — ground in live, permission-aware **Work IQ** (Microsoft 365) context.
 - **[M8](modules/08-deep-research.ipynb)** — multi-step *research* over the corpus.
 
 ---

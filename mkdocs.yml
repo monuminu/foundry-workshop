@@ -83,6 +83,7 @@ nav:
       - "M3 · Tools & Function Calling": modules/03-tools-and-function-calling.ipynb
       - "M4 · Grounding / RAG (Foundry IQ)": modules/04-grounding-rag-foundry-iq.ipynb
       - "M5 · MCP Tools": modules/05-mcp-tools.ipynb
+      - "M5b · Work IQ": modules/05b-work-iq.ipynb
       - "M6 · Agent Memory": modules/06-agent-memory.ipynb
       - "M7 · Multi-Agent Orchestration": modules/07-multi-agent-orchestration.ipynb
       - "M8 · Deep Research": modules/08-deep-research.ipynb
