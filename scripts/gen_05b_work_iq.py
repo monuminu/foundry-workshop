@@ -255,9 +255,9 @@ intelligence is reachable three ways, which is how Work IQ slots into existing s
     md("""\
 ## 🧪 Your turn
 
-1. **Cross-signal question.** Ask something that needs two pillars at once (e.g. *"Summarize
-   the SharePoint doc Dana shared in Teams yesterday"*) and print `tools` — you should see
-   more than one `mcp_call`.
+1. **Cross-signal question.** Ask something that needs two work signals at once (e.g.
+   *"Summarize the SharePoint doc Dana shared in Teams yesterday"* combines files + Teams)
+   and print `tools` — you should see more than one `mcp_call`.
 2. **Tighten governance.** Re-version the agent with `require_approval="always"` kept for
    write-style tools but `"never"` for pure reads (if your server distinguishes them), and
    note how approvals only appear for actions.

@@ -124,7 +124,9 @@ Authentication is **`DefaultAzureCredential`** throughout — your `az login` id
 
     - A licensed **Microsoft 365 tenant**
     - **Node.js 22+**
-    - **Tenant admin consent** for the Work IQ application — grant it at
+    - **Tenant admin consent** for the Work IQ application — this `client_id` is the
+      fixed, Microsoft-provided Work IQ application ID (the same for every tenant; do not
+      substitute your own). Grant consent at
       `https://login.microsoftonline.com/{your-tenant-id}/adminconsent?client_id=ba081686-5d24-4bc6-a0d6-d034ecffed87`
     - The **Work IQ CLI** (`npm install -g @microsoft/workiq`, or run on demand with
       `npx -y @microsoft/workiq mcp`)
