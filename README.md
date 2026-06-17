@@ -66,7 +66,7 @@ mkdocs build --strict                                  # whole-site build
 The module arc and code patterns are distilled from the excellent
 [corticalstack/awesome-foundry-nextgen](https://github.com/corticalstack/awesome-foundry-nextgen)
 enterprise lab series, simplified here to a single-project, `DefaultAzureCredential`
-setup for a one-/multi-day coding workshop.
+setup for a one-/multi-day coding workshop. 
 
 ## License
 
