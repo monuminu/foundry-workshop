@@ -106,6 +106,8 @@ EMBEDDING_MODEL=text-embedding-3-large
 REASONING_MODEL=o4-mini                                   # M1 notes, M13
 RESEARCH_MODEL=o3-deep-research                           # M8
 SEARCH_ENDPOINT=https://<search>.search.windows.net       # M4, M7
+WORKIQ_MCP_URL=https://<host>/workiq/mcp                   # M5b (+ key)
+WORKIQ_MCP_LABEL=work_iq                                   # M5b
 APP_INSIGHTS_CONN_STRING=<application-insights-conn-str>  # M10
 ```
 
@@ -115,6 +117,21 @@ Authentication is **`DefaultAzureCredential`** throughout — your `az login` id
 !!! danger "Never commit `.env`"
     `.env` is git-ignored. Keep your subscription id, endpoints, and any keys out of
     version control.
+
+!!! info "Optional: M5b · Work IQ prerequisites"
+    The **[Work IQ](modules/05b-work-iq.ipynb)** lab grounds an agent in live Microsoft 365
+    work context. To *run* it (reading the lab needs nothing extra) you also need:
+
+    - A licensed **Microsoft 365 tenant**
+    - **Node.js 22+**
+    - **Tenant admin consent** for the Work IQ application — grant it at
+      `https://login.microsoftonline.com/{your-tenant-id}/adminconsent?client_id=ba081686-5d24-4bc6-a0d6-d034ecffed87`
+    - The **Work IQ CLI** (`npm install -g @microsoft/workiq`, or run on demand with
+      `npx -y @microsoft/workiq mcp`)
+    - Accept the EULA once: `workiq accept-eula`
+
+    See the upstream [Work IQ](https://github.com/microsoft/iq-series/tree/main/Work-IQ)
+    project for the full admin guide.
 
 ---
 
