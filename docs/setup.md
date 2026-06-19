@@ -106,6 +106,9 @@ EMBEDDING_MODEL=text-embedding-3-large
 REASONING_MODEL=o4-mini                                   # M1 notes, M13
 RESEARCH_MODEL=o3-deep-research                           # M8
 SEARCH_ENDPOINT=https://<search>.search.windows.net       # M4, M7
+MCP_SERVER_URL=https://<host>/runtime/webhooks/mcp/sse?code=<key>  # M5 (see Platform → MCP tool servers)
+MCP_SERVER_LABEL=project_tracker                          # M5
+MCP_CONNECTION=project-tracker-mcp                        # M5 (tool-catalog connection, §6)
 WORKIQ_MCP_URL=https://<host>/workiq/mcp                   # M5b (+ key)
 WORKIQ_MCP_LABEL=work_iq                                   # M5b
 APP_INSIGHTS_CONN_STRING=<application-insights-conn-str>  # M10
@@ -117,6 +120,13 @@ Authentication is **`DefaultAzureCredential`** throughout — your `az login` id
 !!! danger "Never commit `.env`"
     `.env` is git-ignored. Keep your subscription id, endpoints, and any keys out of
     version control.
+
+!!! info "Optional: M5 · MCP Tools prerequisites"
+    The **[MCP Tools](modules/05-mcp-tools.ipynb)** lab connects an agent to a remote MCP
+    server. To *run* it (reading the lab needs nothing extra) you must first **provision
+    that server** and set `MCP_SERVER_URL` / `MCP_SERVER_LABEL` (and, for §6, the
+    `MCP_CONNECTION` tool-catalog connection). Full deployment steps are in
+    **[Platform → MCP tool servers](platform/04-mcp-tool-servers.md)**.
 
 !!! info "Optional: M5b · Work IQ prerequisites"
     The **[Work IQ](modules/05b-work-iq.ipynb)** lab grounds an agent in live Microsoft 365

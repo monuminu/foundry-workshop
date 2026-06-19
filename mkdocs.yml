@@ -77,6 +77,7 @@ nav:
       - "What is Foundry": platform/01-what-is-foundry.md
       - "Architecture & projects": platform/02-architecture-and-projects.md
       - "Control plane & governance": platform/03-control-plane-and-governance.md
+      - "MCP tool servers": platform/04-mcp-tool-servers.md
   - Labs:
       - "M1 · First Inference": modules/01-first-inference.ipynb
       - "M2 · Your First Agent": modules/02-your-first-agent.ipynb

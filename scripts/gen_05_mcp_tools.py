@@ -33,8 +33,7 @@ details.
 ![Anatomy of a Foundry agent](../../assets/agent-anatomy.png)
 
 !!! note "The MCP server is assumed to exist"
-    The reference lab deploys a multi-tool **Azure Functions** MCP server. Provisioning
-    is covered conceptually in the Platform docs — here we just read its URL and label
+    The reference lab deploys a multi-tool **Azure Functions** MCP server. """ + page_link("platform/04-mcp-tool-servers", "Provisioning it") + """ is covered step-by-step in the Platform docs — here we just read its URL and label
     from `.env` (`MCP_SERVER_URL`, `MCP_SERVER_LABEL`) and wire it to an agent. Foundry's
     versioned-agent API is **preview**; pin `azure-ai-projects` in `pyproject.toml` if a
     symbol drifts."""),
@@ -54,8 +53,8 @@ load_dotenv()  # reads .env from the repo root
 PROJECT_ENDPOINT = os.environ["PROJECT_ENDPOINT"]
 CHAT_MODEL       = os.environ.get("CHAT_MODEL", "gpt-4.1-mini")
 
-# A remote MCP server, already deployed (see Platform docs). The URL typically ends in
-# an SSE endpoint, e.g. https://<host>/runtime/webhooks/mcp/sse?code=<key>
+# A remote MCP server, already deployed (see Platform → MCP tool servers). The URL
+# typically ends in an SSE endpoint, e.g. https://<host>/runtime/webhooks/mcp/sse?code=<key>
 MCP_SERVER_URL   = os.environ["MCP_SERVER_URL"]
 MCP_SERVER_LABEL = os.environ.get("MCP_SERVER_LABEL", "project_tracker")
 
@@ -217,7 +216,8 @@ you must edit each agent. The **Foundry tool catalog** fixes this: register the 
 server **once** as a project connection, then agents reference it by **connection id**.
 The credential lives in the connection, not the agent definition."""),
     code("""\
-# A connection named e.g. 'project-tracker-mcp' was registered once (see Platform docs).
+# A connection named e.g. 'project-tracker-mcp' was registered once (see Platform →
+# MCP tool servers). MCP_CONNECTION holds that connection's name.
 MCP_CONNECTION = os.environ.get("MCP_CONNECTION", "project-tracker-mcp")
 catalog_tool   = project_client.connections.get(MCP_CONNECTION)
 
